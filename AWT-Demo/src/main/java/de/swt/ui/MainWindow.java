@@ -7,17 +7,18 @@ import java.awt.*;
 
 public class MainWindow extends Frame {
 
-        public MainWindow(){
-            setSize(500,300);
-            setTitle("AWT DEMO");
-        }
+    public MainWindow() {
+        setSize(500, 500);
+        setTitle("AWT DEMO");
+    }
+
+    public void setHandler(MainWindowHandler mainWindowHandler) {
+        addWindowListener(mainWindowHandler);
+    }
+
+    public void showFrame() {
+        this.setVisible(true);
+    }
 
 
-        public void showFrame(){
-            this.setVisible(true);
-        }
-
-        public void setHandler(MainWindowHandler mainWindowHandler) {
-            addWindowListener(mainWindowHandler);
-         }
 }
