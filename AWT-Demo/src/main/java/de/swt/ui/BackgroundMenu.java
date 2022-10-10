@@ -7,7 +7,6 @@ import static de.swt.app.Program.mainWindow;
 
 public class BackgroundMenu extends Component {
     public static Color backgroundColor = Color.GRAY;
-    public static Menu coords = new Menu("");
 
     public MenuBar menuBar() {
         MenuBar mb = new MenuBar();
@@ -37,7 +36,6 @@ public class BackgroundMenu extends Component {
         menu.add(i3);
         menu.add(i4);
         mb.add(menu);
-        mb.add(coords);
 
         return mb;
     }
