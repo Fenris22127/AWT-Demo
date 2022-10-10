@@ -9,7 +9,7 @@ import de.swt.ui.MainWindow;
  * AWT-DEMO 2022
  *
  * @author Nico Scheithauer <br>
- * <p>
+ *
  * Das Projekt AWT-Demo dient als Schablone für eigene AWT-Programme
  */
 public class Program {
