@@ -19,6 +19,4 @@ public class MainWindow extends Frame {
     public void showFrame() {
         this.setVisible(true);
     }
-
-
 }

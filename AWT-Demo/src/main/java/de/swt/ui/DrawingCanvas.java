@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
 import static de.swt.app.Program.mainWindow;
+import static de.swt.ui.BackgroundMenu.getBackgroundColor;
 
 public class DrawingCanvas extends Canvas {
     MouseClick ma = new MouseClick(this);
@@ -14,7 +15,7 @@ public class DrawingCanvas extends Canvas {
     public DrawingCanvas() {
         setSize(500, 500);
         addMouseListener(ma);
-        setBackground(Color.GRAY);
+        setBackground(getBackgroundColor());
     }
 
     @Override
