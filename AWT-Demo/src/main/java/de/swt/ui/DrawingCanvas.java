@@ -8,6 +8,7 @@ import java.awt.geom.Ellipse2D;
 import static de.swt.ui.BackgroundMenu.getBackgroundColor;
 
 public class DrawingCanvas extends Canvas {
+    public static float circleRadius = 5.0F;
     MouseClick ma = new MouseClick(this);
     public int count = 0;
 
@@ -27,6 +28,8 @@ public class DrawingCanvas extends Canvas {
                         ma.circles.get(i).coordsY,
                         ma.circles.get(i).radius,
                         ma.circles.get(i).radius));
+                String s = "Circle " + (i + 1) + ": x: " + ma.circles.get(i).coordsX + " y: " + ma.circles.get(i).coordsY;
+                g2d.drawString(s, 360, 20 * (i + 1));
             }
         }
     }
@@ -37,4 +40,7 @@ public class DrawingCanvas extends Canvas {
                 this.getWidth(), this.getHeight());
     }
 
+    public static void setCircleRadius(float radius) {
+        circleRadius = radius;
+    }
 }

@@ -1,5 +1,7 @@
 package de.swt.ui;
 
+import de.swt.events.RadiusDialog;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,11 +9,11 @@ import static de.swt.app.Program.mainWindow;
 
 public class BackgroundMenu extends Component {
     public static Color backgroundColor = Color.GRAY;
+    public static Menu radius = new Menu("Radius");
 
     public MenuBar menuBar() {
         MenuBar mb = new MenuBar();
         Menu menu = new Menu("Background");
-
 
         menu.setFont(new Font("Tahoma", Font.PLAIN, 15));
         MenuItem i1 = new MenuItem("Grey");
@@ -37,6 +39,15 @@ public class BackgroundMenu extends Component {
         menu.add(i4);
         mb.add(menu);
 
+        radius.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        MenuItem setRadius = new MenuItem("Set Radius");
+        setRadius.addActionListener(e -> {
+            RadiusDialog radiusDialog = new RadiusDialog(mainWindow);
+            radiusDialog.setVisible(true);
+        });
+        radius.add(setRadius);
+        mb.add(radius);
+
         return mb;
     }
 
@@ -50,4 +61,3 @@ public class BackgroundMenu extends Component {
         return backgroundColor;
     }
 }
-

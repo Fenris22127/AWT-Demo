@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import static de.swt.ui.DrawingCanvas.circleRadius;
+
 public class MouseClick implements ActionListener, MouseListener {
     public int x;
     public int y;
@@ -29,7 +31,7 @@ public class MouseClick implements ActionListener, MouseListener {
             draw.count++;
             x = e.getX();
             y = e.getY();
-            circles.add(new Circle(x, y, 5.0F));
+            circles.add(new Circle(x, y, circleRadius));
             draw.repaint();
         }
     }
