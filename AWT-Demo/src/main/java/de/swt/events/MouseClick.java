@@ -21,6 +21,7 @@ public class MouseClick implements ActionListener, MouseListener {
         if (draw.count == 2) {
             if (!draw.clear()) System.exit(-1);
         } else {
+            if (draw.count == -1) draw.count = 0;
             draw.count++;
             x = e.getX();
             y = e.getY();
@@ -33,19 +34,15 @@ public class MouseClick implements ActionListener, MouseListener {
     public void mouseExited(MouseEvent e) {
 
     }
-
     public void mousePressed(MouseEvent e) {
 
     }
-
     public void mouseReleased(MouseEvent e) {
 
     }
-
     public void mouseEntered(MouseEvent e) {
 
     }
-
     public void actionPerformed(ActionEvent e) {
 
     }

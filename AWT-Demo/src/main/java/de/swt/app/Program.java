@@ -16,9 +16,9 @@ public class Program {
     public static MainWindow mainWindow;
 
     public static void main(String[] args) {
-        mainWindow.setLocationRelativeTo(null);
         mainWindow = new MainWindow();
         mainWindow.setHandler(new MainWindowHandler());
+        mainWindow.setLocationRelativeTo(null);
         mainWindow.add(new DrawingCanvas());
         mainWindow.showFrame();
     }
