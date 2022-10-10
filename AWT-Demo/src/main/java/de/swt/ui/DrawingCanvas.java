@@ -32,6 +32,13 @@ public class DrawingCanvas extends Canvas {
                 g2d.drawString(s, 360, 20 * (i + 1));
             }
         }
+        if (ma.circles.size() == 2) {
+            g2d.drawLine(
+                    (int) (ma.circles.get(0).coordsX + (ma.circles.get(0).radius / 2)),
+                    (int) (ma.circles.get(0).coordsY + (ma.circles.get(0).radius / 2)),
+                    (int) (ma.circles.get(1).coordsX + (ma.circles.get(1).radius / 2)),
+                    (int) (ma.circles.get(1).coordsY + (ma.circles.get(1).radius / 2)));
+        }
     }
 
     public void clear(Graphics2D g2d) {
