@@ -27,6 +27,8 @@ public class DrawingCanvas extends Canvas {
                     ma.x, ma.y,
                     5.0F, 5.0F);
             g2d.draw(ellipse2D);
+            String s = "Circle " + count + ": x: " + ma.x + " y: " + ma.y;
+            g2d.drawString(s, 360, 20 * count);
         }
     }
 
