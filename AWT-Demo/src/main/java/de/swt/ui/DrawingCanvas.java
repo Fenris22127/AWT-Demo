@@ -4,6 +4,8 @@ import de.swt.events.MouseClick;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 import static de.swt.ui.BackgroundMenu.getBackgroundColor;
 
@@ -30,6 +32,18 @@ public class DrawingCanvas extends Canvas {
                         ma.circles.get(i).radius));
                 String s = "Circle " + (i + 1) + ": x: " + ma.circles.get(i).coordsX + " y: " + ma.circles.get(i).coordsY;
                 g2d.drawString(s, 360, 20 * (i + 1));
+
+            }
+            if (ma.circles.size() == 2) {
+                double distance = Math.sqrt(
+                        (ma.circles.get(1).coordsY - ma.circles.get(0).coordsY) *
+                                (ma.circles.get(1).coordsY - ma.circles.get(0).coordsY) +
+                                (ma.circles.get(1).coordsX - ma.circles.get(0).coordsX) *
+                                        (ma.circles.get(1).coordsX - ma.circles.get(0).coordsX));
+                DecimalFormat df = new DecimalFormat("#.##");
+                df.setRoundingMode(RoundingMode.CEILING);
+                String s = "Distance: " + df.format(distance) + " px";
+                g2d.drawString(s, 360, 60);
             }
         }
     }
