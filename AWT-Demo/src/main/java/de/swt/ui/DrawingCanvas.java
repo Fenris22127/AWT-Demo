@@ -9,7 +9,7 @@ import static de.swt.ui.BackgroundMenu.getBackgroundColor;
 
 public class DrawingCanvas extends Canvas {
     MouseClick ma = new MouseClick(this);
-    public int count = -1;
+    public int count = 0;
 
     public DrawingCanvas() {
         setSize(500, 500);
@@ -32,7 +32,6 @@ public class DrawingCanvas extends Canvas {
     }
 
     public void clear(Graphics2D g2d) {
-        ma.circles.clear();
         g2d.setColor(getBackgroundColor());
         g2d.fillRect(0, 0,
                 this.getWidth(), this.getHeight());

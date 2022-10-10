@@ -26,7 +26,6 @@ public class MouseClick implements ActionListener, MouseListener {
             draw.count = 0;
             circles.clear();
         } else {
-            if (draw.count == -1) draw.count = 0;
             draw.count++;
             x = e.getX();
             y = e.getY();
