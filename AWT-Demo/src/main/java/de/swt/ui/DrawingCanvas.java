@@ -5,7 +5,6 @@ import de.swt.events.MouseClick;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
-import static de.swt.app.Program.mainWindow;
 import static de.swt.ui.BackgroundMenu.getBackgroundColor;
 
 public class DrawingCanvas extends Canvas {
@@ -20,8 +19,9 @@ public class DrawingCanvas extends Canvas {
 
     @Override
     public void paint(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
         if (count != -1) {
-            Graphics2D g2d = (Graphics2D) g;
+
             Ellipse2D ellipse2D;
             ellipse2D = new Ellipse2D.Float(
                     ma.x, ma.y,
@@ -30,10 +30,15 @@ public class DrawingCanvas extends Canvas {
         }
     }
 
-    public boolean clear() {
-        mainWindow.remove(0);
-        mainWindow.add(new DrawingCanvas());
-        return mainWindow.getComponent(0).getClass() == DrawingCanvas.class;
+    @Override
+    public void update(Graphics g) {
+        paint(g);
+    }
+
+    public void clear(Graphics2D g2d) {
+        g2d.setColor(getBackgroundColor());
+        g2d.fillRect(0, 0,
+                this.getWidth(), this.getHeight());
     }
 
 }
