@@ -5,38 +5,36 @@ import de.swt.events.MouseClick;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
+import static de.swt.ui.BackgroundMenu.getBackgroundColor;
+
 public class DrawingCanvas extends Canvas {
     MouseClick ma = new MouseClick(this);
-    public int count = -1;
+    public int count = 0;
 
     public DrawingCanvas() {
         setSize(500, 500);
         addMouseListener(ma);
-        setBackground(Color.GRAY);
+        setBackground(getBackgroundColor());
     }
 
     @Override
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        if (count != -1) {
-
-            Ellipse2D ellipse2D;
-            ellipse2D = new Ellipse2D.Float(
-                    ma.x, ma.y,
-                    5.0F, 5.0F);
-            g2d.draw(ellipse2D);
-            String s = "Circle " + count + ": x: " + ma.x + " y: " + ma.y;
-            g2d.drawString(s, 360, 20 * count);
+        if (!ma.circles.isEmpty()) {
+            for (int i = 0; i < ma.circles.size(); i++) {
+                g2d.draw(new Ellipse2D.Float(
+                        ma.circles.get(i).coordsX,
+                        ma.circles.get(i).coordsY,
+                        ma.circles.get(i).radius,
+                        ma.circles.get(i).radius));
+                String s = "Circle " + (i + 1) + ": x: " + ma.circles.get(i).coordsX + " y: " + ma.circles.get(i).coordsY;
+                g2d.drawString(s, 360, 20 * (i + 1));
+            }
         }
     }
 
-    @Override
-    public void update(Graphics g) {
-        paint(g);
-    }
-
     public void clear(Graphics2D g2d) {
-        g2d.setColor(Color.GRAY);
+        g2d.setColor(getBackgroundColor());
         g2d.fillRect(0, 0,
                 this.getWidth(), this.getHeight());
     }
